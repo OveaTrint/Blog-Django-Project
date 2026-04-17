@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<!--Tells index.html to start generating from blogs/base.html first-->
+{% extends "blogs/base.html" %}
+
+{% block content %}
+<p>BlockMaker Lite helps you share your thoughts with the world</p>
+<p>Make a blog today, and let us know what you are thinking!</p>
+
+<a href="{% url 'blogs:blogs' %}">See all blogs</a>
+{% endblock content %}
+
+</html>

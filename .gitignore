@@ -1,0 +1,5 @@
+.zed
+.venv
+**/__pycache__
+**/staticfiles
+

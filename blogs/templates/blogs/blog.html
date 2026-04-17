@@ -1,0 +1,21 @@
+{% extends "blogs/base.html" %}
+
+{% block content %}
+
+<h2>{{blog.title}}</h2>
+<p>{{blog.description}}</p>
+
+{% for post in blog_posts %}
+<div class="card">
+    <header>
+        <h3><a href="{% url 'blogs:post' post.id %}">{{post.title|truncatechars:50}}</a></h3>
+    </header>
+    <p>{{post.date_added|date:"DATE_FORMAT"}}</p>
+    <p>{{post.body|truncatewords:10}}</p>
+</div>
+
+{% empty %}
+<p>No posts have been written yet</p>
+{% endfor %}
+
+{% endblock content %}

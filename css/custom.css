@@ -1,0 +1,12 @@
+.nav {
+    border-bottom: 1px solid #aaa;
+}
+
+.card {
+    margin-bottom: 20px;
+}
+
+.post-body {
+    padding-left: 15px;
+    padding-right: 15px;
+}
