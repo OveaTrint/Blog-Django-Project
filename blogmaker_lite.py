@@ -6,7 +6,8 @@ from django.urls import include, path
 # So path("", index) means when localhost:8000 is accessed, index is shown
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", include("blogs.url")),
+    path("accounts/", include("accounts.urls")),
+    path("", include("blogs.urls")),
 ]
 
 # handles incoming request and gives appropriate response

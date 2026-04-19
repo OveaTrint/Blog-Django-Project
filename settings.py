@@ -29,6 +29,7 @@ TEMPLATES = [
 ]
 INSTALLED_APPS = [
     "blogs",
+    "accounts",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -68,3 +69,6 @@ STATICFILES_DIRS = [
 ]
 # where django should store all static files it finds with the collectstatic command
 STATIC_ROOT = "staticfiles/"
+
+# tells django to redirect users to blog/index.html after authenciation"
+LOGIN_REDIRECT_URL = "blogs:index"

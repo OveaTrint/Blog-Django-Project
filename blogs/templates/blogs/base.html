@@ -1,4 +1,4 @@
-<!--loads the static tag tag used to reference static files-->
+<!--loads the static tag used to reference static files-->
 {% load static %}
 
 <!DOCTYPE html>
@@ -18,8 +18,7 @@
     <nav class="nav">
         <div class="nav-left">
             <!--Adds a link back to the home page using the url template-->
-            <!--The {% url 'index' %} looks for a url pattern with the name "index"-->
-            <!--<a class="active" href="{% url 'blogs:index' %}">BlogMaker Lite</a>-->
+            <a class="active" href="{% url 'blogs:index' %}">BlogMaker Lite</a>
             <a href="{% url 'blogs:blogs' %}">All blogs</a>
         </div>
     </nav>

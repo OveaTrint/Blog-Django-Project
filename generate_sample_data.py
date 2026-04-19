@@ -13,8 +13,8 @@ os.environ["DJANGO_SUPERUSER_PASSWORD"] = "fake_pw"
 django.setup()
 
 parser = ArgumentParser()
-parser.add_argument("--num_of_blogs", type=int, default=10)
-parser.add_argument("--num_of_posts", type=int, default=100)
+parser.add_argument("--num_of_blogs", default=10)
+parser.add_argument("--num_of_posts", default=100)
 args = parser.parse_args()
 
 cmd = "createsuperuser --username kamal"

@@ -2,6 +2,7 @@ from django.urls import path
 
 from . import views
 
+app_name = "blogs"
 # URLs the django server listens for, "" is by default localhost:8000
 # So path("", index) means when localhost:8000 is accessed, index is shown
 urlpatterns = [
