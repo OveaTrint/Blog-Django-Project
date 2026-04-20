@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 # responsible for processing user's request
 MIDDLEWARE = [
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
 ]
@@ -72,3 +73,4 @@ STATIC_ROOT = "staticfiles/"
 
 # tells django to redirect users to blog/index.html after authenciation"
 LOGIN_REDIRECT_URL = "blogs:index"
+LOGOUT_REDIRECT_URL = "blogs:index"
