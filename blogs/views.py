@@ -1,5 +1,8 @@
-from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
+from django.shortcuts import redirect, render
 
+from .forms import BlogForm
 from .models import Blog, BlogPost
 
 """VIEW FUNCTIONS: What users can see when they access the correspondng page's url"""
@@ -13,6 +16,7 @@ def index(request):
 
 def blogs(request):
     all_blogs = Blog.objects.all()
+    paginator = Paginator(all_blogs, 25)
     context = {"blogs": all_blogs}
 
     return render(request, "blogs/blogs.html", context=context)
@@ -39,3 +43,20 @@ def post(request, post_id):
         "blog": blog,
     }
     return render(request, "blogs/post.html", context=context)
+
+
+@login_required
+def new_blog(request):
+    if request.method != "POST":
+        form = BlogForm()
+    else:
+        form = BlogForm(data=request.POST)
+        if form.is_valid():
+            new_blog = form.save(commit=False)
+            new_blog.owner = request.user
+            new_blog.save()
+
+            return redirect("blogs:blogs")
+    context = {"form": form}
+
+    return render(request, "blogs/new_blog.html", context)

@@ -1,6 +1,7 @@
 # this a file in the blog app folder
 # apps are ways to manage different entities in a project.
 
+from django.contrib.auth.models import User
 from django.db import models
 
 # create another manager to print the titles of the books
@@ -15,6 +16,7 @@ class Blog(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField()
     date = models.DateTimeField(auto_now_add=True)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title

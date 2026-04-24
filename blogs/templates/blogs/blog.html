@@ -4,7 +4,7 @@
 
 <h2>{{blog.title}}</h2>
 <p>{{blog.description}}</p>
-
+<p class="text-right blog-owner">{{blog.owner.username}}</p>
 {% for post in blog_posts %}
 <div class="card">
     <header>
