@@ -6,7 +6,7 @@
 <form action="{% url 'blogs:new_blog' %}" method="POST">
     {% csrf_token %}
     {{form.as_div}}
-    <button name="submit" class="button-primary">Create blog</button>
+    <button name="submit" class="button primary">Create blog</button>
 </form>
 
 {% endblock content %}

@@ -8,7 +8,7 @@ from django.core.management import call_command
 
 # Load the settings
 # Settings always need to be loaded when running a .py file directly in a django project
-os.environ["DJANGO_SETTINGS_MODULE"] = "settings"
+os.environ["DJANGO_SETTINGS_MODULE"] = "blogmaker_lite.settings"
 os.environ["DJANGO_SUPERUSER_PASSWORD"] = "fake_pw"
 django.setup()
 
