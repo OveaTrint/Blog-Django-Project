@@ -6,7 +6,7 @@ from django.shortcuts import redirect, render
 from .forms import BlogForm, BlogPostForm
 from .models import Blog, BlogPost
 
-"""VIEW FUNCTIONS: What users can see when they access the correspondng page's url"""
+"""VIEW FUNCTIONS: What users can see when they access the corresponding page's url"""
 
 
 # The response returned when a request is made to index

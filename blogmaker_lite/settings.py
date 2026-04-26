@@ -1,9 +1,14 @@
 from pathlib import Path
 
+import django
+
 # settings for django
 # ROOT_URLCONF tells django where to look for URLs to listen for
 # DEBUG is whether a not logs should be shown
 # secret_key is to safeguard your backend when during deployment
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+ALLOWED_HOSTS = []
 
 
 ROOT_URLCONF = "blogmaker_lite.urls"
@@ -41,10 +46,13 @@ INSTALLED_APPS = [
 
 # responsible for processing user's request
 MIDDLEWARE = [
+    "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.common.CommonMiddleWare",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
 DATABASES = {
