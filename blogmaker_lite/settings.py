@@ -81,7 +81,6 @@ STATIC_URL = "static/"
 
 # directories that contain static files that are the same for all users
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "css"),
     os.path.join(BASE_DIR, "static"),
 ]
 # where django should store all static files it finds with the collectstatic command
