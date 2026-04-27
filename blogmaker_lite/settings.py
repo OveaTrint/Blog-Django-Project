@@ -17,7 +17,7 @@ ALLOWED_HOSTS = ["*"]
 
 WSGI_APPLICATION = "blogmaker_lite.wsgi.application"
 ROOT_URLCONF = "blogmaker_lite.urls"
-DEBUG = False
+DEBUG = True
 SECRET_KEY = "my_secret_key"
 TEMPLATES = [
     {
