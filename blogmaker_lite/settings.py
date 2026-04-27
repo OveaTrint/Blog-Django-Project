@@ -15,7 +15,7 @@ os.environ.setdefault("PGPORT", "5432")
 BASE_DIR = Path(__file__).resolve().parent.parent
 ALLOWED_HOSTS = ["*"]
 
-WSGI_APPLICATION = "myproject.wsgi.application"
+WSGI_APPLICATION = "blogmaker_lite.wsgi.application"
 ROOT_URLCONF = "blogmaker_lite.urls"
 DEBUG = True
 SECRET_KEY = "my_secret_key"
