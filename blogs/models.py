@@ -3,6 +3,7 @@
 
 from django.contrib.auth.models import User
 from django.db import models
+from django.urls import reverse
 
 # create another manager to print the titles of the books
 # class BlogTitleManager(models.Manager):
@@ -32,3 +33,6 @@ class BlogPost(models.Model):
 
     def __str__(self):
         return self.title[:50]
+
+    def get_absolute_url(self):
+        return reverse("blogs:post", kwargs={"post_id": self.id})

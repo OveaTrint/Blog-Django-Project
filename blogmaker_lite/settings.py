@@ -1,16 +1,21 @@
+import os
 from pathlib import Path
-
-import django
 
 # settings for django
 # ROOT_URLCONF tells django where to look for URLs to listen for
 # DEBUG is whether a not logs should be shown
 # secret_key is to safeguard your backend when during deployment
 
+os.environ.setdefault("PGDATABASE", "blogs")
+os.environ.setdefault("PGUSER", "postgres")
+os.environ.setdefault("PGPASSWORD", "kamal265")
+os.environ.setdefault("PGHOST", "localhost")
+os.environ.setdefault("PGPORT", "5432")
+
 BASE_DIR = Path(__file__).resolve().parent.parent
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
-
+WSGI_APPLICATION = "myproject.wsgi.application"
 ROOT_URLCONF = "blogmaker_lite.urls"
 DEBUG = True
 SECRET_KEY = "my_secret_key"
@@ -35,7 +40,6 @@ TEMPLATES = [
 INSTALLED_APPS = [
     "blogs",
     "accounts",
-    "simple_deploy",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -48,8 +52,9 @@ INSTALLED_APPS = [
 # responsible for processing user's request
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
-    "django.middleware.common.CommonMiddleWare",
+    "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
@@ -59,13 +64,14 @@ MIDDLEWARE = [
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "blogs",
-        "USER": "postgres",
-        "PASSWORD": "kamal265",
-        "HOST": "localhost",
-        "PORT": "5432",
-    },
+        "NAME": os.environ["PGDATABASE"],
+        "USER": os.environ["PGUSER"],
+        "PASSWORD": os.environ["PGPASSWORD"],
+        "HOST": os.environ["PGHOST"],
+        "PORT": os.environ["PGPORT"],
+    }
 }
+
 # defines how to manage auto-incrementing fields
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
@@ -75,10 +81,11 @@ STATIC_URL = "static/"
 
 # directories that contain static files that are the same for all users
 STATICFILES_DIRS = [
-    "css",
+    os.path.join(BASE_DIR, "css"),
+    os.path.join(BASE_DIR, "static"),
 ]
 # where django should store all static files it finds with the collectstatic command
-STATIC_ROOT = "staticfiles/"
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 # tells django to redirect users to blog/index.html after authenciation"
 LOGIN_REDIRECT_URL = "blogs:index"

@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import login_required
-from django.core.paginator import Paginator
 from django.http.response import HttpResponse
 from django.shortcuts import redirect, render
+from django.views.generic import DetailView, ListView
 
 from .forms import BlogForm, BlogPostForm
 from .models import Blog, BlogPost
