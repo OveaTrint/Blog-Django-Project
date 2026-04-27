@@ -67,7 +67,7 @@ def new_post(request, blog_id):
     blog = Blog.objects.get(id=blog_id)
     allowed_guests = ["kamal", "jason", "tayo", "joseph"]
 
-    if request.user not in allowed_guests or request.user != blog.owner:
+    if request.user not in allowed_guests and request.user != blog.owner:
         return HttpResponse("<h1>403 forbidden</h1> ")
 
     if request.method != "POST":
