@@ -1,7 +1,7 @@
 .zed
 .venv
 **/__pycache__
-**/staticfiles
+# **/staticfiles
 
 
 .vercel
