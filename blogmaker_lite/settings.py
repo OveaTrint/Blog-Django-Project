@@ -15,9 +15,11 @@ os.environ.setdefault("PGPORT", "5432")
 BASE_DIR = Path(__file__).resolve().parent.parent
 ALLOWED_HOSTS = ["*"]
 
+CSRF_TRUSTED_ORIGINS = ["https://*.up.railway.app"]
+
 WSGI_APPLICATION = "blogmaker_lite.wsgi.application"
 ROOT_URLCONF = "blogmaker_lite.urls"
-DEBUG = True
+DEBUG = False
 SECRET_KEY = "my_secret_key"
 TEMPLATES = [
     {
